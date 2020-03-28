@@ -1,0 +1,7 @@
+C:\Users\jaime\Desktop\POO\laboratorio-02-jaime7981\ReproductorSpotifai\obj\Debug\ReproductorSpotifai.csprojAssemblyReference.cache
+C:\Users\jaime\Desktop\POO\laboratorio-02-jaime7981\ReproductorSpotifai\obj\Debug\ReproductorSpotifai.csproj.CoreCompileInputs.cache
+C:\Users\jaime\Desktop\POO\laboratorio-02-jaime7981\ReproductorSpotifai\bin\Debug\ReproductorSpotifai.exe.config
+C:\Users\jaime\Desktop\POO\laboratorio-02-jaime7981\ReproductorSpotifai\bin\Debug\ReproductorSpotifai.exe
+C:\Users\jaime\Desktop\POO\laboratorio-02-jaime7981\ReproductorSpotifai\bin\Debug\ReproductorSpotifai.pdb
+C:\Users\jaime\Desktop\POO\laboratorio-02-jaime7981\ReproductorSpotifai\obj\Debug\ReproductorSpotifai.exe
+C:\Users\jaime\Desktop\POO\laboratorio-02-jaime7981\ReproductorSpotifai\obj\Debug\ReproductorSpotifai.pdb
