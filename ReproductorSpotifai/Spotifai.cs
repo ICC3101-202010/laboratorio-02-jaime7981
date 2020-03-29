@@ -11,6 +11,11 @@ namespace ReproductorSpotifai
         private object[,] Songs = new object[10,4];
         private int songscounter = 0;
 
+        public Spotifai() : base()
+        {
+
+        }
+
         public Spotifai(string genere, string artist, string album, string name) : base(genere, artist, album, name)
         {
 
@@ -27,24 +32,28 @@ namespace ReproductorSpotifai
             Console.WriteLine("Genere of the song: ");
             string newgenere = Console.ReadLine();
 
-            for (int i = 0; i < Songs.Length/4; i++)
+            for (int i = 0; i < songscounter; i++)
             {
-                if (newname == Songs[i,0] && newartist == Songs[i,1] && newalbum == Songs[i,2] && newgenere == Songs[i, 3])
+                if (newname == Songs[i,0].ToString() && newartist == Songs[i,1].ToString() && 
+                    newalbum == Songs[i,2].ToString() && newgenere == Songs[i, 3].ToString())
                 {
                     return false;
                 }
             }
-            Songs[songscounter, 0] = newname; Songs[songscounter, 1] = newartist; Songs[songscounter, 2] = newalbum; Songs[songscounter, 3] = newgenere;
-            songscounter++;
+            Songs[songscounter, 0] = newname; Songs[songscounter, 1] = newartist;
+            Songs[songscounter, 2] = newalbum; Songs[songscounter, 3] = newgenere;
+            songscounter ++;
             return true;
         }
 
-        public void WatchSong()
+
+        public void ShowSongs()
         {
-            for(int i = 0; i < songscounter; i++)
+            for (int i = 0; i < songscounter; i++)
             {
-                Console.WriteLine(string.Concat("\n Your current list: \n", i+1 ,".- ", 
-                    Songs[i, 0].ToString()," " , Songs[i, 1].ToString()," " , Songs[i, 2].ToString()," " , Songs[i, 3].ToString(),"\n"));
+                name = Songs[i, 0].ToString(); artist = Songs[i, 1].ToString();
+                album = Songs[i, 2].ToString(); genere = Songs[i, 3].ToString();
+                Information();
             }
         }
 
