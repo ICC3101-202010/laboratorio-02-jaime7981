@@ -79,6 +79,13 @@ namespace ReproductorSpotifai
                     }
                 }
 
+                for (int j = 0; j < varcounter; j++)
+                {
+                    name = FilteredSongs[j, 0]; artist = FilteredSongs[j, 1];
+                    album = FilteredSongs[j, 2]; genere = FilteredSongs[j, 3];
+                    Information();
+                }
+
                 if (varcounter == 0)
                 {
                     Console.WriteLine("We couldn´t find a match \n");
@@ -86,12 +93,6 @@ namespace ReproductorSpotifai
                     return FilteredSongs;
                 }
 
-                for (int i = 0; i < varcounter; i++)
-                {
-                    name = FilteredSongs[varcounter, 0]; artist = FilteredSongs[varcounter, 1];
-                    album = FilteredSongs[varcounter, 2]; genere = FilteredSongs[varcounter, 3];
-                    Information();
-                }
 
                 return FilteredSongs;
             }

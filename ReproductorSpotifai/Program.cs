@@ -11,7 +11,6 @@ namespace ReproductorSpotifai
         static void Main(string[] args)
         {
             string var;
-            string kind;
             string search;
             Console.WriteLine("Welcome back user!");
             Spotifai user = new Spotifai();
@@ -32,11 +31,11 @@ namespace ReproductorSpotifai
                 if (var == "Search")
                 {
                     Console.WriteLine("\n Kind: Genere / Artist / Album / Name \n");
-                    kind = Console.ReadLine();
+                    var = Console.ReadLine();
                     Console.WriteLine("\n Write what you want to search: ");
                     search = Console.ReadLine();
 
-                    user.Filter(kind, search);
+                    user.Filter(var, search);
                 }
 
                 if (var == "Exit"){
