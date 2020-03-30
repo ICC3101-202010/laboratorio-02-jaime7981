@@ -12,11 +12,13 @@ namespace ReproductorSpotifai
         {
             string var;
             string search;
+            string newname;
+
             Console.WriteLine("Welcome back user!");
             Spotifai user = new Spotifai();
 
             while (true){
-                Console.WriteLine("\n Menu: \n Add / Show / Search / Exit \n");
+                Console.WriteLine("\n Menu: \n Add / Show / Search / My Playlists / New Playlist / Exit \n");
                 var = Console.ReadLine();
                 if(var == "Add")
                 {
@@ -32,10 +34,30 @@ namespace ReproductorSpotifai
                 {
                     Console.WriteLine("\n Kind: Genere / Artist / Album / Name \n");
                     var = Console.ReadLine();
+
                     Console.WriteLine("\n Write what you want to search: ");
                     search = Console.ReadLine();
 
                     user.Filter(var, search);
+                }
+
+                if (var == "New Playlist")
+                {
+                    Console.WriteLine("\n Kind: Genere / Artist / Album / Name \n");
+                    var = Console.ReadLine();
+
+                    Console.WriteLine("\n Type your filter: ");
+                    search = Console.ReadLine();
+
+                    Console.WriteLine("\n Type your playlist name: ");
+                    newname = Console.ReadLine();
+
+                    user.NewUserPlaylist(var, search, newname);
+                }
+
+                if (var == "My Playlists")
+                {
+                    user.MyPlaylists();
                 }
 
                 if (var == "Exit"){

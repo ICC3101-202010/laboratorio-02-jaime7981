@@ -3,20 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.OleDb;
+using System.Data.SqlClient;
+using System.Xml;
+using System.Xml.XPath;
 
 namespace ReproductorSpotifai
 {
-    class Spotifai : Song
+    class Spotifai : Playlist
     {
         private int songscounter = 0;
         private int reconvar;
+        private int listcounter;
+
+        private object[,] Playlists = new object[40,40];
 
         public Spotifai() : base()
-        {
-
-        }
-
-        public Spotifai(string genere, string artist, string album, string name) : base(genere, artist, album, name)
         {
 
         }
@@ -40,6 +42,7 @@ namespace ReproductorSpotifai
                     return false;
                 }
             }
+
             Songs[songscounter, 0] = newname; Songs[songscounter, 1] = newartist;
             Songs[songscounter, 2] = newalbum; Songs[songscounter, 3] = newgenere;
             songscounter ++;
@@ -93,7 +96,7 @@ namespace ReproductorSpotifai
                     return FilteredSongs;
                 }
 
-
+                Console.WriteLine("\n Song added \n");
                 return FilteredSongs;
             }
 
@@ -103,6 +106,62 @@ namespace ReproductorSpotifai
                 FilteredSongs = new string[0, 0];
                 return FilteredSongs;
             }
+        }
+
+        public bool NewUserPlaylist(string filter, string value, string playlistnewname)
+        {
+            int varcounter = 0;
+
+            if (filter == "Name") { reconvar = 0; }
+            if (filter == "Artist") { reconvar = 1; }
+            if (filter == "Album") { reconvar = 2; }
+            if (filter == "Genere") { reconvar = 3; }
+
+
+            if (filter == "Name" || filter == "Artist" || filter == "Album" || filter == "Genere")
+            {
+                Playlists[listcounter, 0] = listcounter + 2;
+                Playlists[listcounter, 1] = playlistnewname;
+
+                for (int i = 0; i < songscounter; i++)
+                {
+                    if (value == Songs[i, reconvar].ToString())
+                    {
+                        Playlists[listcounter,(i+2)] = ("\n Genere: " + Songs[i, 3].ToString() + "\n Artist: " + Songs[i, 1].ToString() + 
+                                                        "\n Album: " + Songs[i, 2].ToString() + "\n Name: " + Songs[i, 0].ToString() + "\n");
+                        varcounter++;
+                    }
+                }
+                Console.WriteLine("\n Playlist added \n");
+                listcounter++;
+                return true;
+            }
+            if (varcounter == 0)
+            {
+                Console.WriteLine("We couldn´t find a match, no playlist created \n");
+                return false;
+            }
+            else
+            {
+                Console.WriteLine("Error: No proper filter selected \n");
+                return false;
+            }
+        }
+
+        public string MyPlaylists()
+        {
+            for (int i = 0; i < listcounter; i++)
+            {
+                string auxvar = Playlists[i, 0].ToString();
+
+                Console.WriteLine("\n Playlist: " + Playlists[i, 1].ToString());
+
+                for (int j = 0; j < Int32.Parse(auxvar); j++)
+                {
+                    Console.WriteLine(Playlists[i,(j+2)].ToString());
+                }
+            }
+            return null;
         }
 
     }

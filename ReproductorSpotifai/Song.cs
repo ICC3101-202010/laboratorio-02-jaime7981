@@ -13,7 +13,7 @@ namespace ReproductorSpotifai
         protected string album;
         protected string name;
 
-        protected object[,] Songs = new object[40, 4];
+        protected object[,] Songs = new object[100, 4];
 
         public Song()
         {
