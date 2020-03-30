@@ -133,6 +133,12 @@ namespace ReproductorSpotifai
                     }
                 }
                 Console.WriteLine("\n Playlist added \n");
+                string auxvar = Playlists[listcounter, 0].ToString();
+                Console.WriteLine("\n Playlist: " + Playlists[listcounter, 1].ToString());
+                for (int j = 0; j < Int32.Parse(auxvar); j++)
+                {
+                    Console.WriteLine(Playlists[listcounter, (j + 2)].ToString());
+                }
                 listcounter++;
                 return true;
             }
@@ -150,6 +156,10 @@ namespace ReproductorSpotifai
 
         public string MyPlaylists()
         {
+            if (listcounter == 0)
+            {
+                Console.WriteLine("No playlist has been found");
+            }
             for (int i = 0; i < listcounter; i++)
             {
                 string auxvar = Playlists[i, 0].ToString();
@@ -161,7 +171,7 @@ namespace ReproductorSpotifai
                     Console.WriteLine(Playlists[i,(j+2)].ToString());
                 }
             }
-            return null;
+            return "";
         }
 
     }

@@ -18,7 +18,7 @@ namespace ReproductorSpotifai
             Spotifai user = new Spotifai();
 
             while (true){
-                Console.WriteLine("\n Menu: \n Add / Show / Search / My Playlists / New Playlist / Exit \n");
+                Console.WriteLine("\n Menu: \n Add / Show / Filter / My Playlists / New Playlist / Exit \n");
                 var = Console.ReadLine();
                 if(var == "Add")
                 {
@@ -30,7 +30,7 @@ namespace ReproductorSpotifai
                     user.ShowSongs();
                 }
 
-                if (var == "Search")
+                if (var == "Filter")
                 {
                     Console.WriteLine("\n Kind: Genere / Artist / Album / Name \n");
                     var = Console.ReadLine();
