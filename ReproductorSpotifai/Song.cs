@@ -8,10 +8,12 @@ namespace ReproductorSpotifai
 {
     class Song
     {
-        public string genere;
-        public string artist;
-        public string album;
-        public string name;
+        protected string genere;
+        protected string artist;
+        protected string album;
+        protected string name;
+
+        protected object[,] Songs = new object[40, 4];
 
         public Song()
         {
@@ -30,6 +32,5 @@ namespace ReproductorSpotifai
         {
             Console.WriteLine("\n Genere: " + genere + "\n Artist: " + artist + "\n Album: " + album + "\n Name: " + name + "\n");
         }
-
     }
 }

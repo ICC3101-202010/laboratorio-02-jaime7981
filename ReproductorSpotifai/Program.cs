@@ -11,21 +11,34 @@ namespace ReproductorSpotifai
         static void Main(string[] args)
         {
             string var;
-            Console.WriteLine("Welcome back user! \n");
-            Spotifai a = new Spotifai();
+            string kind;
+            string search;
+            Console.WriteLine("Welcome back user!");
+            Spotifai user = new Spotifai();
 
             while (true){
-                Console.WriteLine("Do you want to add a new song? \n Yes/No");
+                Console.WriteLine("\n Menu: \n Add / Show / Search / Exit \n");
                 var = Console.ReadLine();
-                if(var == "Yes")
+                if(var == "Add")
                 {
-                    a.AddSong();
+                    user.AddSong();
                 }
 
-                a.ShowSongs();
+                if (var == "Show")
+                {
+                    user.ShowSongs();
+                }
 
-                Console.WriteLine("Do you want to exit? \n Exit");
-                var = Console.ReadLine();
+                if (var == "Search")
+                {
+                    Console.WriteLine("\n Kind: Genere / Artist / Album / Name \n");
+                    kind = Console.ReadLine();
+                    Console.WriteLine("\n Write what you want to search: ");
+                    search = Console.ReadLine();
+
+                    user.Filter(kind, search);
+                }
+
                 if (var == "Exit"){
                     break;
                 }
